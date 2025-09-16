@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Daily Routine Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="loginContainer" class="container">
+    <h1>Login</h1>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <div id="loginError" style="color: red; display: none;"></div>
+    <button onclick="login()">Login</button><br>
+    <button onclick="register()">Register</button><br>
+    <button onclick="guestLogin()">Continue as Guest</button>
+  </div>
+
+  <div id="routineContainer" class="container hidden" style="display:none;">
+    <h1>My Daily Routine - <span id="todayDate"></span></h1>
+    <button onclick="toggleTheme()">Toggle Dark/Light Mode</button>
+    <button onclick="resetLogs()">Reset Logs</button>
+    <button onclick="exportTodayCSV()">Export Today’s CSV</button>
+    <button onclick="logout()">Logout</button>
+    <table>
+      <thead>
+        <tr>
+          <th>Routine</th>
+          <th>Start Time</th>
+          <th>End Time</th>
+          <th>Duration</th>
+          <th>Note</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="routineBody"></tbody>
+    </table>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

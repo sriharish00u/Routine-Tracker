@@ -1,0 +1,134 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f0f2f5;
+  margin: 0;
+  text-align: center;
+  align-items: center;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+body.dark-mode {
+  background: #1a1a1a;
+  color: #f0f0f0;
+}
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: opacity 0.3s, transform 0.3s;
+}
+.container.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.dark-mode .container {
+  background: #2c2c2c;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+h1 {
+  text-align: center;
+  color: #333;
+  transition: color 0.3s;
+}
+.dark-mode h1 {
+  color: #f0f0f0;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 10px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+.dark-mode th, .dark-mode td {
+  border-color: #555;
+}
+tr.active {
+  background-color: #e6f3ff;
+  animation: pulse 2s infinite;
+}
+.dark-mode tr.active {
+  background-color: #4a4a8a;
+}
+tr.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+textarea {
+  width: 95%;
+  padding: 5px;
+  min-height: 50px;
+  resize: vertical;
+}
+input, textarea {
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+.dark-mode input, .dark-mode textarea {
+  border-color: #555;
+  background: #333;
+  color: #f0f0f0;
+}
+button {
+  margin: 10px 5px;
+  padding: 10px 15px;
+  background: #1a73e8;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+button:hover:not(:disabled) {
+  transform: scale(1.05);
+  background: #1565c0;
+}
+.dark-mode button {
+  background: #4a90e2;
+}
+.dark-mode button:hover:not(:disabled) {
+  background: #357abd;
+}
+button:disabled {
+  background: #cccccc;
+  cursor: not-allowed;
+}
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr { display: block; }
+  th { display: none; }
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+  }
+  .dark-mode td { border-bottom-color: #555; }
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    width: 40%;
+  }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0% { background-color: #e6f3ff; }
+  50% { background-color: #d0e7ff; }
+  100% { background-color: #e6f3ff; }
+}
+.dark-mode @keyframes pulse {
+  0% { background-color: #4a4a8a; }
+  50% { background-color: #5a5a9a; }
+  100% { background-color: #4a4a8a; }
+}
